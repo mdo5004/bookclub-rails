@@ -1,8 +1,8 @@
 require 'json'
 class GoodreadsService
-    def self.books(params = {})
-        test_search= "https://www.goodreads.com/search/index.xml?key=U19zPpjBZNZMUrsjpA&q=Ender%27s+Game" 
-        resp = Faraday.get(test_search) 
+    def self.books(q = '')
+        search= "https://www.goodreads.com/search/index.xml?key=#{ENV['GOODREADS_KEY']}&q=#{q}" 
+        resp = Faraday.get(search) 
         xml_resp = Nokogiri::XML(resp.body)
         results = xml_resp.css("work").collect { |work| 
             {

@@ -1,10 +1,9 @@
 class BooksController < ApplicationController
     
     def search
-        test_search = "https://www.goodreads.com/search/index.xml?key=U19zPpjBZNZMUrsjpA&q=Ender%27s+Game"
         
-        results = GoodreadsService.books({key: "U19zPpjBZNZMUrsjpA", title: "ender's game"})
-        
+        results = GoodreadsService.books(params[:q])
+        puts "Received request for #{params[:q]}"
         BookSearchResult.destroy_all
         @books = results.collect do |result|
             BookSearchResult.create(result)
