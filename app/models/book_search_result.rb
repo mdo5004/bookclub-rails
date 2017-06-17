@@ -1,0 +1,2 @@
+class BookSearchResult < ApplicationRecord
+end
