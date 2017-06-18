@@ -21,4 +21,5 @@
 .byebug_history
 
 # Ignore the client folder
+/client
 /client/*
