@@ -12,4 +12,9 @@ class BooksController < ApplicationController
         render json: @books
     end
     
+    def create
+    end
+    def index
+    end
+    
 end
