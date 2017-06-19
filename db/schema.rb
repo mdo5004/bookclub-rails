@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(version: 20170618204407) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
-    t.bigint   "book_id"
+    t.bigint   "goodreads_book_id"
     t.integer  "publication_year"
     t.integer  "average_rating"
     t.string   "image_url"
     t.string   "small_image_url"
     t.integer  "author_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "comments", force: :cascade do |t|
