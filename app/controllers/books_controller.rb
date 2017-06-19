@@ -3,6 +3,7 @@ class BooksController < ApplicationController
         @books = Book.visible
         render json: @books
     end
+    
     def show
     end
 
@@ -28,6 +29,15 @@ class BooksController < ApplicationController
         end
     end
 
+    def update
+        @book = Book.find(params[:id])
+        @book.update(visible: false)
+        render status: 201
+    end
+    def destroy
+        
+    end
+    
     private
     def books_params
 
