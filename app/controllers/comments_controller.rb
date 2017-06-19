@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
     
     def index
         if params[:book_id]
-            book = Book.find_by(id: params[:book_id])
+            book = Book.find(params[:book_id])
             @comments = book.comments
         else
             @comments = Comment.all
