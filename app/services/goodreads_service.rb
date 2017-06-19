@@ -14,8 +14,8 @@ class GoodreadsService
                 average_rating: work.css('average_rating').text,
                 image_url: work.css('image_url').text,
                 small_image_url: work.css('small_image_url').text                
+                }
             }
-        }
         return results
     end
 end
