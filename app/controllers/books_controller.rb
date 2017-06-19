@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
     def index
-        @books = Book.all
+        @books = Book.visible
         render json: @books
     end
     def show
@@ -19,8 +19,9 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Book.new(books_params)
+        @book = Book.find_by(title: books_params[:title]) || Book.new(books_params)
         if @book.save
+            @book.update(visible: true)
             render json: @book, status:201
         else
             render status:400
