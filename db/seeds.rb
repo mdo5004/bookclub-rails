@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Author.create([{name:"Orson Scott Card"}, {name:"J.K. Rowling"}])
 Book.create([
     
 {
-author: "Orson Scott Card",
-author_id: "589",
+author_id: 1,
 title: "Ender's Game (Ender's Saga, #1)",
 goodreads_book_id: "2422333375802589",
 publication_year: "1985",
@@ -20,8 +20,7 @@ created_at: "2017-06-17T18:31:45.655Z",
 updated_at: "2017-06-17T18:31:45.655Z"
 },
     {
-author: "J.K. Rowling",
-author_id: "1077326",
+author_id: 2,
 title: "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
 goodreads_book_id: "464079931077326",
 publication_year: "1997",
@@ -32,7 +31,7 @@ created_at: "2017-06-18T16:55:25.647Z",
 updated_at: "2017-06-18T16:55:25.647Z"
 }
     ])
-Author.create([{name:"Orson Scott Card"}, {name:"J.K. Rowling"}])
+
 
 Comment.create([
     { username: "mdo5004", page: 111, text: "Bacon ipsum dolor amet ribeye kevin tail cupim corned beef, meatloaf rump porchetta short ribs bresaola frankfurter pork capicola. Doner cupim bacon meatloaf. Turkey tenderloin chuck, ham hock swine tri-tip kielbasa burgdoggen alcatra salami tongue filet mignon ribeye. Prosciutto tenderloin salami, pork chop corned beef jowl kielbasa turkey. Cow tail meatball, doner shankle salami tongue chicken biltong picanha beef.", book_id: 1},
