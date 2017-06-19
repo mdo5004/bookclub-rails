@@ -1,6 +1,6 @@
 require 'json'
 class GoodreadsService
-    def self.books(q = '')
+    def self.search(q = '')
         search= "https://www.goodreads.com/search/index.xml?key=#{ENV['GOODREADS_KEY']}&q=#{q}" 
         resp = Faraday.get(search) 
         xml_resp = Nokogiri::XML(resp.body)

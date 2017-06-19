@@ -2,7 +2,7 @@ class BooksController < ApplicationController
     
     def search
         
-        results = GoodreadsService.books(params[:q])
+        results = GoodreadsService.search(params[:q])
         puts "Received request for #{params[:q]}"
         BookSearchResult.destroy_all
         @books = results.collect do |result|
