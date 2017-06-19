@@ -13,8 +13,12 @@ class BooksController < ApplicationController
     end
     
     def create
+        
     end
     def index
+        @books = Book.all
+        render json: @books
     end
-    
+    def show
+    end
 end
