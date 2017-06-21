@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
     belongs_to :book
-    
-    validates :text, presence: true
+    belongs_to :user
+    validates :text, :user_id, :page, :book_id presence: true
 end
