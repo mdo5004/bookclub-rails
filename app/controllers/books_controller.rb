@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 
         results = GoodreadsService.search(params[:q])
         puts "Received request for #{params[:q]}"
+        puts results.to_s
         BookSearchResult.destroy_all
         @books = results.collect do |result|
             BookSearchResult.create(result)
