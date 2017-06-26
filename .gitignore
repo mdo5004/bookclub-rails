@@ -23,3 +23,5 @@
 # Ignore the client folder
 /client/
 /client/*
+/bookclub-react/
+/bookclub-react/*
