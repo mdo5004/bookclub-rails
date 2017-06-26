@@ -1,25 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
 
-Things you may want to cover:
+* Ruby v2.3.4 
+* Postgresql
+* bundler
+* npm (for client portion)
 
-* Ruby version
+## Installation
 
-* System dependencies
+This is the back-end API for [Bookclub for Goodreads](https://github.com/mdo5004/bookclub-react).
 
-* Configuration
+Clone this repo into your desired directory using `git clone https://github.com/mdo5004/bookclub-rails` or download the repo directly from Github.
 
-* Database creation
+In `bookclub-rails` run `bundle install` to install dependencies. 
 
-* Database initialization
+To initialize and seed the database, make sure PostgresQL is running locally and run `rake db:create && rake db:migrate && rake db:seed`.
 
-* How to run the test suite
+To start the API alone, run `rails server`. 
 
-* Services (job queues, cache servers, search engines, etc.)
+## To work on the API and Client together
+In `bookclub-rails` directory, clone the front-end repo with `git clone https://github.com/mdo5004/bookclub-react`.
 
-* Deployment instructions
+`cd` into `bookclub-react` and run `npm install && cd ..` to install the associated Node packages.
 
-* ...
+Use `rake start` to run both the client and the API simultaneously. Point your browser to `localhost:3000` to start the React client.
+
+
 # bookclub-rails
