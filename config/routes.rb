@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     end
     # I think I should set up Action Cables to update comments in real time
     resources :users, only: [:index, :create]
+    resources :sessions, only: [:create]
 end
