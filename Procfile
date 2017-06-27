@@ -1,2 +1,2 @@
-web: cd client && npm start
+web: cd bookclub-react && npm start
 api: bundle exec rails s -p 3001
