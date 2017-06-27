@@ -31,7 +31,7 @@ updated_at: "2017-06-18T16:55:25.647Z"
 }
     ])
 
-User.create([{username:"mdo5004"},{username:"rvo1987"}])
+User.create([{username:"mdo5004", password:"password"},{username:"rvo1987", password:"password"}])
 
 Comment.create([
     { user_id:1, page: 111, text: "Bacon ipsum dolor amet ribeye kevin tail cupim corned beef, meatloaf rump porchetta short ribs bresaola frankfurter pork capicola. Doner cupim bacon meatloaf. Turkey tenderloin chuck, ham hock swine tri-tip kielbasa burgdoggen alcatra salami tongue filet mignon ribeye. Prosciutto tenderloin salami, pork chop corned beef jowl kielbasa turkey. Cow tail meatball, doner shankle salami tongue chicken biltong picanha beef.", book_id: 1},
