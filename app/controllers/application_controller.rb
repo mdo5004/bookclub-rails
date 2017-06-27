@@ -2,6 +2,10 @@ class ApplicationController < ActionController::API
     include ActionController::MimeResponds
     
     def current_user
-        @user = User.find(session[:id]) 
+        session[:user] ||= []
+    end
+    
+    def logged_in?
+        return !!current_user
     end
 end
