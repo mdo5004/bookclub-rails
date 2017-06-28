@@ -7,7 +7,8 @@ class BooksController < ApplicationController
     def show
         book = Book.find(params[:id])
         reviews_widget = GoodreadsService.reviews_widget(book.title)
-        render plain: reviews_widget
+        render json: reviews_widget, content_type: 'text/html'
+        
     end
 
     def search

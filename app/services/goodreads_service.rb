@@ -19,6 +19,23 @@ class GoodreadsService
         return results
     end
 
+    def self.recent_reviews
+       search = "https://www.goodreads.com/review/recent_reviews.xml?key=#{ENV['GOODREADS_KEY']}"
+        resp = Faraday.get(search)
+        xml_resp = Nokogiri::XML(resp.body)
+        reviews = xml_resp.css("review").collect { |review|
+                {
+                    name: review.css('user').css('display_name').text,
+                    location: review.css('user').css('location').text,
+                    body: review.css('body').text,
+                    rating: review.css('rating').text,
+                    image_url: review.css('user').css('image_url').text,
+                    small_image_url: review.css('user').css('small_image_url').text
+                    
+                    }
+            }
+        return reviews
+    end
     def self.reviews_widget(title='')
 #        conn = Faraday.new(:url => 'https://www.goodreads.com/book/title.xml')
 #        
@@ -28,6 +45,7 @@ class GoodreadsService
 #            req.params['title'] = title
 #        end
         search = "https://www.goodreads.com/book/title.json?key=#{ENV['GOODREADS_KEY']}&title=#{title}"
+        
         resp = Faraday.get(search)
         
         if resp.status >= 300
