@@ -25,3 +25,6 @@
 /client/*
 /bookclub-react/
 /bookclub-react/*
+
+# Ignore env variables file
+.env
