@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :require_login
     
     def index
         if params[:book_id]

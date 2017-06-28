@@ -1,7 +1,11 @@
 class BooksController < ApplicationController
+    before_action :require_login
+    
     def index
+        if current_user
         @books = Book.visible
         render json: @books
+            
     end
     
     def show

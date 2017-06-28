@@ -1,17 +1,31 @@
 class SessionsController < ApplicationController
+    skip_before_action :require_login, only: [:create], raise: false
 
     def create
-        @user = User.find_by(username: session_params[:username]).try(:authenticate, session_params[:password])
-        if @user
-            session[:user] = @user
-            render json: @user
+        if user = User.valid_login?(params[:username], params[:password])
+            allow_token_to_be_used_only_once_for(user)
+            send_auth_token_for_valid_login_of(user)
         else
-            return head(:forbidden)
+            render_unauthorized("Error with your login or password")
         end
     end
 
+    def destroy
+        logout
+        head :ok
+    end
+
     private
-    def session_params
-        params.permit(:username, :password) 
+
+    def send_auth_token_for_valid_login_of(user)
+        render json: { token: user.token }
+    end
+
+    def allow_token_to_be_used_only_once_for(user)
+        user.regenerate_token
+    end
+
+    def logout
+        current_user.invalidate_token
     end
 end
