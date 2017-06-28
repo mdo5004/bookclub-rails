@@ -18,4 +18,29 @@ class GoodreadsService
             }
         return results
     end
+
+    def self.reviews_widget(title='')
+#        conn = Faraday.new(:url => 'https://www.goodreads.com/book/title.xml')
+#        
+##        search= "?key=#{ENV['GOODREADS_KEY']}&title=#{title}"
+#        resp = conn.get do |req|
+#            req.params['key'] = ENV['GOODREADS_KEY']
+#            req.params['title'] = title
+#        end
+        search = "https://www.goodreads.com/book/title.json?key=#{ENV['GOODREADS_KEY']}&title=#{title}"
+        resp = Faraday.get(search)
+        
+        if resp.status >= 300
+            redirect = Nokogiri::XML(resp.body).css("a")
+        
+            url = redirect[0].values[0]
+            resp = Faraday.get(url+"?key=#{ENV['GOODREADS_KEY']}")
+#            resp = conn.get do |req|
+#                req.params['key'] = ENV['GOODREADS_KEY']
+#            end
+        end
+        
+        return resp.body
+        
+    end
 end
