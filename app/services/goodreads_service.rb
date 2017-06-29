@@ -32,7 +32,7 @@ class GoodreadsService
                     image_url: review.css('book').css('image_url').text,
                     small_image_url: review.css('book').css('small_image_url').text,
                     book_title: review.css('book').css('title').text,
-                    book_url: review.css('book').css('link').text
+                    book_url: review.css('book').css('link')[0].text
                     }
             }
         return reviews
