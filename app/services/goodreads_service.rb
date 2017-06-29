@@ -29,9 +29,10 @@ class GoodreadsService
                     location: review.css('user').css('location').text,
                     body: review.css('body').text,
                     rating: review.css('rating').text,
-                    image_url: review.css('user').css('image_url').text,
-                    small_image_url: review.css('user').css('small_image_url').text
-                    
+                    image_url: review.css('book').css('image_url').text,
+                    small_image_url: review.css('book').css('small_image_url').text,
+                    book_title: review.css('book').css('title').text,
+                    book_url: review.css('book').css('link').text
                     }
             }
         return reviews
