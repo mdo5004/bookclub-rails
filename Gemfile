@@ -26,7 +26,7 @@ gem 'foreman', '~> 0.82.0'
 # gem 'capistrano-rails', group: :development
 
 gem 'dotenv' # for .env files
-gem 'nokogiri' # for parsing goodreads xml responses
+gem 'nokogiri', '~> 1.8.2'# for parsing goodreads xml responses
 gem 'faraday' # for fetching data
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
